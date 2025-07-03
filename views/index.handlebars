@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login con Cookies</title>
+</head>
+<body>
+  <div id="contenido"></div>
+
+  <script>
+    function setCookie(nombre, valor, dias) {
+      const fecha = new Date();
+      fecha.setTime(fecha.getTime() + (dias*24*60*60*1000));
+      document.cookie = nombre + "=" + valor + ";expires=" + fecha.toUTCString() + ";path=/";
+    }
+
+    function getCookie(nombre) {
+      const cookies = document.cookie.split("; ");
+      for (let c of cookies) {
+        const [clave, valor] = c.split("=");
+        if (clave === nombre) return valor;
+      }
+      return null;
+    }
+
+    function borrarCookie(nombre) {
+      document.cookie = nombre + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+
+    function mostrarLogin() {
+      document.getElementById("contenido").innerHTML = `
+        <h2>Login</h2>
+        <input type="text" id="nombre" placeholder="Tu nombre">
+        <button onclick="login()">Ingresar</button>
+      `;
+    }
+
+    function login() {
+      const nombre = document.getElementById("nombre").value;
+      if (nombre.trim() !== "") {
+        setCookie("usuario", nombre, 7);
+        mostrarBienvenida();
+      }
+    }
+
+    function logout() {
+      borrarCookie("usuario");
+      mostrarLogin();
+    }
+
+    function mostrarBienvenida() {
+      const usuario = getCookie("usuario");
+      if (usuario) {
+        document.getElementById("contenido").innerHTML = `
+          <h2>Hola, ${usuario}!</h2>
+          <p>Bienvenido de nuevo.</p>
+          <button onclick="logout()">Cerrar sesión</button>
+        `;
+      } else {
+        mostrarLogin();
+      }
+    }
+
+    mostrarBienvenida(); // Mostrar pantalla al cargar
+  </script>
+</body>
+</html>
+
+<ul>
+<!---DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="inicio">
+  <div class="contenedor-login">
+    <h1>Ajedrez Online</h1>
+    <p>¡Juega ajedrez en línea contra tus amigos o con oponentes aleatorios!</p>
+
+<form id="loginForm">
+  <h2>Iniciar Sesión</h2>
+  <input name="username" type="text" placeholder="Usuario" required />
+  <input name="password" type="password" placeholder="Contraseña" required />
+  <label><input type="checkbox"> Recordarme</label>
+  <button type="submit">Entrar</button>
+</form>
+
+<script>
+  document.getElementById('loginForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const username = document.querySelector('input[name="username"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+
+    // Enviar la solicitud al backend para autenticar
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+      credentials: 'include', // Necesario para enviar cookies
+    });
+    
+    const data = await res.json();
+    
+    if (data.success) {
+      window.location.href = '/pantalla.html'; // Redirige al usuario a la pantalla principal
+    } else {
+      alert('Error al iniciar sesión');
+    }
+  };
+</script>
+
+    <p>¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+
+    <footer><a href="desarrolladores.html">Sobre los desarrolladores</a></footer>
+  </div>
+</body>
+</html>
+<ul--->

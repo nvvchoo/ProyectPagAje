@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Partida</title>
+  <link rel="stylesheet" href="partidapriv.css" />
+</head>
+<body>
+  <main class="partida-layout">
+    <div class="columna-izquierda">
+      <h1>Partida en curso</h1>
+
+      <div id="mensaje-error" style="color: #ff4d4d; font-weight: bold; margin-top: 10px; min-height: 20px;"></div>
+
+      <div class="tablero">
+        <div class="fila" id="fila8">
+          <div class="numero-fila">8</div>
+          <div class="casilla negra"><span class="pieza pieza-negra">&#9820;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-negra">&#9822;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-negra">&#9821;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-negra">&#9819;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-negra">&#9818;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-negra">&#9821;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-negra">&#9822;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-negra">&#9820;</span></div>
+        </div>
+        <div class="fila" id="fila7">
+          <div class="numero-fila">7</div>
+          <div class="casilla blanca"><span class="pieza pieza-negra">&#9823;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-negra">&#9823;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-negra">&#9823;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-negra">&#9823;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-negra">&#9823;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-negra">&#9823;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-negra">&#9823;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-negra">&#9823;</span></div>
+        </div>
+        <div class="fila" id="fila6">
+          <div class="numero-fila">6</div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+        </div>
+        <div class="fila" id="fila5">
+          <div class="numero-fila">5</div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+        </div>
+        <div class="fila" id="fila4">
+          <div class="numero-fila">4</div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+        </div>
+        <div class="fila" id="fila3">
+          <div class="numero-fila">3</div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+          <div class="casilla blanca"></div>
+          <div class="casilla negra"></div>
+        </div>
+        <div class="fila" id="fila2">
+          <div class="numero-fila">2</div>
+          <div class="casilla negra"><span class="pieza pieza-blanca">&#9817;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-blanca">&#9817;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-blanca">&#9817;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-blanca">&#9817;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-blanca">&#9817;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-blanca">&#9817;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-blanca">&#9817;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-blanca">&#9817;</span></div>
+        </div>
+        <div class="fila" id="fila1">
+          <div class="numero-fila">1</div>
+          <div class="casilla blanca"><span class="pieza pieza-blanca">&#9814;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-blanca">&#9816;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-blanca">&#9815;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-blanca">&#9813;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-blanca">&#9812;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-blanca">&#9815;</span></div>
+          <div class="casilla blanca"><span class="pieza pieza-blanca">&#9816;</span></div>
+          <div class="casilla negra"><span class="pieza pieza-blanca">&#9814;</span></div>
+        </div>
+      </div>
+
+      <div class="letras-columnas">
+        <span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span>
+      </div>
+
+      <h2 id="cambio">Turno pieza blanca</h2>
+      <p id="mensaje-final"></p>
+      <button id="nuevo-btn">Nueva Partida</button>
+
+      <div class="botones">
+        <button id="btn-rendirse">Rendirse</button>
+        <button id="btn-empatar">Empatar</button>
+      </div>
+      </div>
+    
+    <div class="columna-derecha">
+      <section>
+        <h3>Movimientos</h3>
+        <ul></ul>
+      </section>
+
+      <section>
+        <h3>Piezas Capturadas</h3>
+        <div id="bandeja-capturadas" style="min-height: 50px; display: flex; flex-wrap: wrap; gap: 5px;"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="partida.js"></script>
+</body>
+</html>

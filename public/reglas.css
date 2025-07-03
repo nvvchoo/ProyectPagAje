@@ -1,0 +1,62 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: #fafafa;
+  margin: 0;
+  padding: 20px;
+}
+
+.titulo {
+  background-color: #e0e0e0;
+  padding: 10px;
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+
+.paso {
+  position: relative;
+  padding: 20px;
+  margin: 20px 0;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.paso .numero {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background: white;
+  border: 3px solid #333;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paso h3 {
+  margin-top: 0;
+}
+
+.uno {
+  background-color: #d4edda;
+}
+
+.dos {
+  background-color: #fff3cd;
+}
+
+.tres {
+  background-color: #FFD08A;
+}
+
+.cuatro {
+  background-color: #fff3cd;
+}
+
+.cinco {
+  background-color: #d4edda;
+}

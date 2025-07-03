@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro - Ajedrez Online</title>
+  <link rel="stylesheet" href="registro.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body class="inicio">
+  <div class="contenedor-login">
+    <h1>Ajedrez Online</h1>
+    <p>¡Regístrate para jugar ajedrez con tus amigos o rivales online!</p>
+    <h2>Crear Cuenta</h2>
+
+    <form action="/register" method="POST">
+      <input name="username" type="text" placeholder="Nombre" required>
+      <input name="lastname" type="text" placeholder="Apellido" required>
+      <input name="email" type="email" placeholder="Correo Electrónico" required>
+      <input name="password" type="password" placeholder="Contraseña" required>
+      <input name="passwordC" type="password" placeholder="Confirmar Contraseña" required>
+
+      <button type="submit">Registrarse</button>
+    </form>
+
+    <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
+    <p><a href="desarrolladores.html">Sobre los desarrolladores</a></p>
+  </div>
+</body>
+</html>

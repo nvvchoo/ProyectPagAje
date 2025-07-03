@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Partidas Públicas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(45deg, #676127, #935727);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2em;
+    }
+
+    .contenedor {
+      background-color: #CFC4B1;
+      border: 3px solid #0d0d0d;
+      border-radius: 16px;
+      padding: 2em;
+      width: 90%;
+      max-width: 900px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      color: #0d0d0d;
+      margin-bottom: 1em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #CFC4B1;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+      color: #0d0d0d;
+    }
+
+    th {
+      background-color: #0d0d0d;
+      color: #CFC4B1;
+    }
+
+    tr:hover {
+      background-color: #aa8c3f33;
+    }
+
+    .btn-unirse {
+      background-color: #aa8c3f;
+      border: 2px solid #0d0d0d;
+      color: #0d0d0d;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-unirse:hover {
+      background-color: #676127;
+      color: #CFC4B1;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Partidas Públicas Disponibles</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre de la Partida</th>
+          <th>Creador</th>
+          <th>Jugadores</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-partidas"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const partidasPublicas = JSON.parse(localStorage.getItem("partidasPublicas")) || [
+      { nombre: "Ajedrez Libre", creador: "Carlos", jugadores: "1/2" },
+      { nombre: "Duelo de Reyes", creador: "Ana", jugadores: "1/2" },
+      { nombre: "Partida rápida", creador: "Leo", jugadores: "1/2" }
+    ];
+
+    const tabla = document.getElementById("tabla-partidas");
+
+    if (partidasPublicas.length === 0) {
+      tabla.innerHTML = '<tr><td colspan="4">No hay partidas públicas disponibles.</td></tr>';
+    } else {
+      partidasPublicas.forEach(p => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td>${p.nombre}</td>
+          <td>${p.creador}</td>
+          <td>${p.jugadores}</td>
+          <td><button class="btn-unirse" onclick="unirse('${p.nombre}')">Unirse</button></td>
+        `;
+        tabla.appendChild(fila);
+      });
+    }
+
+    function unirse(nombre) {
+      alert("Te has unido a la partida: " + nombre);
+    }
+  </script>
+</body>
+</html>

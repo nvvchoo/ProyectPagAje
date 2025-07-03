@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pantalla de Inicio</title>
+  <link rel="stylesheet" href="pantalla.css" />
+</head>
+<body class="inicio">
+  
+  <button id="btn-perfil" class="button" title="Mi perfil">
+    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="currentColor" width="20">
+      <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+    </svg>
+  </button>
+  
+  <div class="menu-cartas">
+
+    <a href="crearlobby.html" class="card card--fila1-1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="#333" d="M8 5v14l11-7L8 5z"/>
+      </svg>
+      <div class="card__content">
+        <p class="card__title">JUGAR</p>
+        <p class="card__description">Únete a partidas activas como jugador o espectador</p>
+      </div>
+    </a>
+
+    <a href="historial.html" class="card card--fila1-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="#333" d="M12 1a11 11 0 1 0 11 11A11.013 11.013 0 0 0 12 1Zm.5 12h-1V7h1v5l4 2.4-.5.85L12.5 13Z"/>
+      </svg>
+      <div class="card__content">
+        <p class="card__title">HISTORIAL</p>
+        <p class="card__description">Consulta tus partidas anteriores y estadísticas personales</p>
+      </div>
+    </a>
+
+    <a href="lista.html" class="card card--fila1-3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="#333" d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm0 2v14h16V5H4Zm2 2h10v2H6V7Zm0 4h12v2H6v-2Zm0 4h8v2H6v-2Z"/>
+      </svg>
+      <div class="card__content">
+        <p class="card__title">LISTA DE PARTIDAS</p>
+        <p class="card__description">Consulta el listado de todas las partidas públicas disponibles</p>
+      </div>
+    </a>
+
+    <a href="reglas.html" class="card card--fila2-1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="#333" d="M6 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6V4H6Zm0 2h4v12H6V6Zm6-2v16h6a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-6Zm2 2h4v12h-4V6Z"/>
+      </svg>
+      <div class="card__content">
+        <p class="card__title">Reglas</p>
+        <p class="card__description">Antes de jugar, conoce las reglas del juego: objetivos, turnos y lo que no está permitido.</p>
+      </div>
+    </a>
+
+    <a href="historia.html" class="card card--fila2-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="#333" d="M3 4a1 1 0 0 1 1-1h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4a1 1 0 0 1-1-1V4Zm17 15h-6a2 2 0 0 0-2 2V5a2 2 0 0 1 2-2h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1Z"/>
+      </svg>
+      <div class="card__content">
+        <p class="card__title">Historia</p>
+        <p class="card__description">Descubre el origen del ajedrez, su evolución a lo largo del tiempo y cómo se convirtió en uno de los juegos más icónicos del mundo.</p>
+      </div>
+    </a>
+
+  </div>
+
+<div id="perfil-modal" style="display: none;">
+  <div id="perfil-overlay"></div>
+  <div id="perfil-contenedor">
+    <h2>Mi Perfil</h2>
+    <p><strong>Usuario:</strong> <span id="perfil-usuario">-</span></p>
+    <p><strong>Partidas jugadas:</strong> <span id="perfil-jugadas">0</span></p>
+    <p><strong>Ganadas:</strong> <span id="perfil-ganadas">0</span></p>
+    <p><strong>Empates:</strong> <span id="perfil-empates">0</span></p>
+    <p><strong>Perdidas:</strong> <span id="perfil-perdidas">0</span></p>
+    <button id="cerrar-perfil">Cerrar</button>
+    <button id="cerrar-sesion" style="margin-top: 1em;">Cerrar sesión</button>
+  </div>
+</div>
+
+<style>
+  #perfil-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+
+  #perfil-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 13, 13, 0.6);
+  }
+
+  #perfil-contenedor {
+    position: relative;
+    margin: 10vh auto;
+    background: #CFC4B1;
+    border: 3px solid #0d0d0d;
+    border-radius: 16px;
+    padding: 2em;
+    width: 90%;
+    max-width: 400px;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    font-family: 'Georgia', serif;
+    color: #0d0d0d;
+  }
+
+  #perfil-contenedor h2 {
+    color: #aa8c3f;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  #perfil-contenedor button {
+    background-color: #aa8c3f;
+    border: 2px solid #0d0d0d;
+    color: #0d0d0d;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 1em auto 0;
+  }
+
+  #perfil-contenedor button:hover {
+    background-color: #676127;
+    color: #CFC4B1;
+  }
+</style>
+
+<script>
+  const usuario = localStorage.getItem("usuarioActual") || "Invitado";
+  const partidas = JSON.parse(localStorage.getItem("partidas")) || [];
+
+  const jugadas = partidas.filter(p => p.blanco === usuario || p.negro === usuario);
+  const ganadas = jugadas.filter(p => p.resultado === `Gana ${usuario}`);
+  const empates = jugadas.filter(p => p.resultado === "Empate");
+  const perdidas = jugadas.length - ganadas.length - empates.length;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("perfil-usuario").innerText = usuario;
+    document.getElementById("perfil-jugadas").innerText = jugadas.length;
+    document.getElementById("perfil-ganadas").innerText = ganadas.length;
+    document.getElementById("perfil-empates").innerText = empates.length;
+    document.getElementById("perfil-perdidas").innerText = perdidas;
+
+    const btn = document.getElementById("btn-perfil");
+    const modal = document.getElementById("perfil-modal");
+    const cerrar = document.getElementById("cerrar-perfil");
+    const logout = document.getElementById("cerrar-sesion");
+
+    if (btn && modal && cerrar && logout) {
+      btn.onclick = () => modal.style.display = "block";
+      cerrar.onclick = () => modal.style.display = "none";
+      logout.onclick = () => {
+        localStorage.removeItem("usuarioActual");
+        modal.style.display = "none";
+        window.location.href = "index.html";
+      };
+    }
+  });
+</script>
+
+</body>
+</html>

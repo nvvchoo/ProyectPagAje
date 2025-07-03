@@ -1,0 +1,147 @@
+.inicio {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #676127 0%, #935727 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-cartas {
+  display: grid;
+  grid-template-columns: repeat(6, 150px);
+  grid-auto-rows: 200px;
+  gap: 30px;
+  justify-content: center;
+  align-content: center;
+  padding: 20px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #CFC4B1;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 0 5px #333;
+  perspective: 1000px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: transform 0.6s ease;
+  z-index: 1;
+}
+
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: #CFC4B1;
+  box-sizing: border-box;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: transform 0.6s ease;
+  z-index: 2;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover svg {
+  transform: scale(0);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.card__description {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.card--fila1-1 {
+  grid-column: 1 / 3;
+}
+.card--fila1-2 {
+  grid-column: 3 / 5;
+}
+.card--fila1-3 {
+  grid-column: 5 / 7;
+}
+
+.card--fila2-1 {
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+
+.card--fila2-2 {
+  grid-column: 4 / 6;
+  grid-row: 2;
+}
+
+.button {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #CFC4B1;
+  transition: all 1000ms;
+  font-size: 15px;
+  position: fixed;    
+  top: 20px;           
+  right: 20px;          
+  overflow: hidden;
+  outline: 2px solid #CFC4B1;
+  z-index: 1000;       
+}
+
+.button:hover {
+  color: #CFC4B1;
+  transform: scale(1.1);
+  outline: 2px solid #333;
+  box-shadow: 4px 5px 17px -4px #333;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #333;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+.button:hover::before {
+  width: 250%;
+}
